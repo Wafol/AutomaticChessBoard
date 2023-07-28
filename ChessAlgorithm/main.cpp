@@ -1,6 +1,10 @@
 #include <iostream>
 
+#include "ChessBoard.h"
+
 int main() {
-    std::cout << "Hello, World!" << std::endl;
+    ChessBoard chess_board;
+    chess_board.printBoard();
+
     return 0;
 }
