@@ -1,27 +1,53 @@
 #include "ChessBoard.h"
 #include <iostream>
+#include <cctype>
+#include <cstring>
 
-
-void ChessBoard::printBoard() {
-    std::cout << "    A B C D E F G H" << std::endl << std::endl;
-
-    for (int i = 0; i < 8; i++) {
-        std::cout << i + 1 << "   ";
-
-        for (int j = 0; j < 8; j++) {
-            std::cout << board_data[i][j];
-
-            if (j < 7)
-                std::cout << ' ';
-        }
-
-        std::cout << std::endl;
-    }
-
-
-
-}
 
 ChessBoard::ChessBoard() {
+    //fill up moves rules
+    //PAWN
+    std::vector<MoveRule> pawn_rules;
 
+    MoveRule move_rule;
+    move_rule.move_dir = {0, 1};
+    pawn_rules.push_back(move_rule);
+
+    move_rule = MoveRule();
+    move_rule.move_dir = {0, 2};
+    move_rule.only_first_touch = true;
+    pawn_rules.push_back(move_rule);
+
+    move_rule = MoveRule();
+    move_rule.move_dir = {1, 1};
+    move_rule.only_to_attack_enemy = true;
+    pawn_rules.push_back(move_rule);
+
+    piecesMoveRules['p'] = pawn_rules;
+
+    //KNIGHT
 }
+/*
+std::vector<ChessBoard::PieceMove> ChessBoard::getPossibleMoves(PlayerType player_type) {
+    for (int i = 0; i < 8; i++) {
+        for (int j = 0; j < 8; j++) {
+            if (ChessBoard::WhoseIsThePiece(board_data[i][j]) == PLAYER_1) {
+
+            }
+        }
+    }
+
+    return std::vector<PieceMove>();
+}
+
+
+
+
+
+std::vector<ChessBoard::PieceMove> ChessBoard::getPossibleMovesOfPiece(int piece_i, int piece_j) {
+    if (board_data[][] == ROOK) {
+
+    }
+}
+*/
+
