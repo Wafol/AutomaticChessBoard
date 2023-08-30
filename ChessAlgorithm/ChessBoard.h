@@ -4,16 +4,10 @@
 #include "BoardData.h"
 #include <vector>
 #include <map>
+#include <string>
 
 
 class ChessBoard : public BoardData {
-
-
-public:
-    ChessBoard();
-
-
-//private:
     typedef struct PieceMove {
         Coordinates start;
         Coordinates end;
@@ -28,17 +22,26 @@ public:
         bool only_to_attack_enemy = false; //this bool is there only bcs pawn attack diagonally
     } MoveRule;
 
+public:
+    ChessBoard();
+    void movePiece(PieceMove piece_move);
+    //returns false if the string format is wrong
+    bool movePiece(std::string piece_move_txt);
 
+    void showPossibleMovesOfPiece(Coordinates piece_xy);
+
+private:
     //pieces by char, UPPERCASE
     std::map<char, std::vector<MoveRule>> pieces_move_rules;
 
 
-    std::vector<PieceMove> getPossibleMoves(PlayerType player_type);
-
+    std::map<Coordinates, std::vector<Coordinates>> getPossibleMoves(PlayerType player_type);
+    //if it doesnt recognise piece ('.' for example) it returns empty vector
     std::vector<Coordinates> getPossibleMovesOfPiece(Coordinates piece_xy);
 
-
-
+    //ALWAYS check if the piece is really pawn and if the board has the right orientation
+    static bool isPawnInInitialPosition(Coordinates pawn_xy) { return pawn_xy.y == 1; };
+    bool canPawnAttack(Coordinates pawn_xy, MoveRule rule) const;
 };
 
 

@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+C:/Users/pavel/Documents/AutomaticChessBoard/ChessAlgorithm/BoardData.cpp
+BoardData.h
+C:/Users/pavel/Documents/AutomaticChessBoard/ChessAlgorithm/BoardData.h
+iostream
+-
+cctype
+-
+
+C:/Users/pavel/Documents/AutomaticChessBoard/ChessAlgorithm/BoardData.h
+Coordinates.h
+C:/Users/pavel/Documents/AutomaticChessBoard/ChessAlgorithm/Coordinates.h
+vector
+-
+
+C:/Users/pavel/Documents/AutomaticChessBoard/ChessAlgorithm/Coordinates.h
+

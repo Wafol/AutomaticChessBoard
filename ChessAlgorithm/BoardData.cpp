@@ -8,7 +8,7 @@ void BoardData::printBoard(std::vector <std::vector<char>> board_data_arr) {
     std::cout << "    A B C D E F G H" << std::endl << std::endl;
 
     for (int i = 0; i < 8; i++) {
-        std::cout << i + 1 << "   ";
+        std::cout << 8 - i << "   ";
 
         for (int j = 0; j < 8; j++) {
             std::cout << board_data_arr.at(i).at(j);
@@ -21,7 +21,7 @@ void BoardData::printBoard(std::vector <std::vector<char>> board_data_arr) {
     }
 }
 
-void BoardData::showPossibleMoves(const std::vector<Coordinates>& possible_moves, Coordinates piece_xy) const {
+void BoardData::showPossibleMovesOfPiece(std::vector<Coordinates>& possible_moves, Coordinates piece_xy) const {
     BoardData helper_board_arr = *this;
 
     for (Coordinates pos : possible_moves) {
@@ -104,5 +104,6 @@ void BoardData::flipColorOfPiece(char* piece) {
     else
         *piece = (char) toupper(*piece);
 }
+
 
 
